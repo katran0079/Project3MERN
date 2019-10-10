@@ -17,9 +17,16 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
+  dateJoined: {
     type: Date,
     default: Date.now
+  },
+  registered: {
+    type: Boolean,
+    default: false
+  },
+  profile: {
+    type: Object
   },
   ///ref/link to a user saved car inventory
   savedEvents: [
