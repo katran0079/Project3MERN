@@ -5,15 +5,22 @@ const ComSchema = mongoose.Schema({
     type: String,
     require: true
   },
-  fullDesc: {
+  description: {
     type: String,
     require: true
   },
-  entryDate: {
+  eventID: {
+    type: String,
+    require: true
+  },
+  venueInfo: {
+    type: Object
+  },
+  start: {
     type: Date,
     default: Date.now
   },
-  sellableDate: {
+  end: {
     type: Date,
     default: Date.now
   }
