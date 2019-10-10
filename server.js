@@ -3,7 +3,10 @@ const connectDB = require("./config/db");
 const path = require("path");
 const axios = require("axios");
 const app = express();
+const mongoose = require("mongoose");
 
+var Com = require("./models/Com.js");
+var User = require("./models/User.js");
 connectDB();
 
 app.use(express.json({ extended: false })); // we can now accept info from req.body
@@ -26,7 +29,8 @@ app.get("/scrape", function(req, res) {
       for (var i = 0; i < resp.length; i++) {
         //empty variable that will hold some data which may or may not be provided
         var endDate;
-        var eventVenue = "Undetermined";
+        var eventVenue;
+        var description;
         console.log(eventVenue);
         //checks if there is an end date provided, if not it will list the end date as "Undetermined"
         if (typeof resp[i].dates.end === "undefined") {
@@ -40,17 +44,30 @@ app.get("/scrape", function(req, res) {
           eventVenue = resp[i]._embedded.venues;
           console.log(eventVenue);
         }
+        if (typeof resp[i].description === "undefined") {
+          description = "No description available";
+        } else {
+          description = resp[i].description;
+        }
         //shoots out relevant info such as the event name, description, start date, end date, and venue info.
         //just makes it easier to use this info for later as opposed to using the actual API
         var obj = {
           name: resp[i].name,
           eventID: resp[i].id,
-          description: resp[i].description,
+          description: description,
           start: resp[i].dates.start.localDate,
           venueInfo: eventVenue,
           end: endDate
         };
         array.push(obj);
+        var entry = new Com(obj);
+        entry.save(function(err, doc) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(doc);
+          }
+        });
       }
       res.send(array);
     });
