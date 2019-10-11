@@ -4,9 +4,11 @@ const path = require("path");
 const axios = require("axios");
 const app = express();
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 var Con = require("./models/Com.js");
 var User = require("./models/User.js");
+app.use(cors());
 connectDB();
 
 app.use(express.json({ extended: false })); // we can now accept info from req.body
