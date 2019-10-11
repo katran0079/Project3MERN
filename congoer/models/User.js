@@ -17,9 +17,6 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  tags: {
-    type: Object
-  },
   dateJoined: {
     type: Date,
     default: Date.now
@@ -28,22 +25,9 @@ const UserSchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
-  status: {
-    type: Object,
-    default: {
-      body: "I have joined Congoers!",
-      date: Date.now,
-      replies: {}
-    }
-  },
   //may not need but whatever
   profile: {
-    type: Object,
-    default: {
-      body: "Let the world know about you!",
-      socialMediaLinks: {},
-      interests: "What do you like?"
-    }
+    type: Object
   },
   ///ref/link to a user saved car inventory
   savedEvents: [
