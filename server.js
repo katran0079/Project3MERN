@@ -14,6 +14,7 @@ connectDB();
 app.use(express.json({ extended: false })); // we can now accept info from req.body
 
 //Define Routes
+app.use("/api/client", require("./routes/clientUser"));
 app.use("/api/users", require("./routes/users"));
 app.use("/api/cons", require("./routes/cons"));
 app.use("/scrape", require("./routes/scrape"));
