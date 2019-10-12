@@ -14,9 +14,13 @@ connectDB();
 app.use(express.json({ extended: false })); // we can now accept info from req.body
 
 //Define Routes
+// client route is just a way to get user info without displaying password information
 app.use("/api/client", require("./routes/clientUser"));
+// user route is where all user info is stored at
 app.use("/api/users", require("./routes/users"));
+// con app is where saved con info is stored at
 app.use("/api/cons", require("./routes/cons"));
+// scrape route grabs the ticketmaster API and helps to extract the info we'll need
 app.use("/scrape", require("./routes/scrape"));
 app.get("/", (req, res) => res.json({ msg: "Welcome to ConGoers!" }));
 
