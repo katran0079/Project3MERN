@@ -20,7 +20,7 @@ app.use("/api/client", require("./routes/clientUser"));
 app.use("/api/users", require("./routes/users"));
 // con app is where saved con info is stored at
 app.use("/api/cons", require("./routes/cons"));
-// scrape route grabs the ticketmaster API and helps to extract the info we'll need
+// scrape route grabs the ticketmaster API and helps to extract the info we'll need and then dumps it into the db
 app.use("/scrape", require("./routes/scrape"));
 app.get("/", (req, res) => res.json({ msg: "Welcome to ConGoers!" }));
 

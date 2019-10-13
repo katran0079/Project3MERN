@@ -1,10 +1,23 @@
 import React, { Component } from "react";
-class API extends Component {
+import SignUp from "../components/signup";
+class SignUpPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { ConResponse: "", UsersResponse: "" };
+    this.state = { name: "", password: "", confirm: "", email: "" };
   }
-
+  postUsers() {
+    fetch("https://localhost:5000/api/users", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        firstParam: "yourValue",
+        secondParam: "yourOtherValue"
+      })
+    });
+  }
   // callNews() {
   //   fetch("http://localhost:5000/scrape")
   //     .then(res => res.text())
@@ -25,15 +38,8 @@ class API extends Component {
     this.callCons();
   }
   render() {
-    return (
-      <div>
-        <h1>CON INFO</h1>
-        <p className="App-intro">{this.state.ConResponse}</p>
-        <h1>USER INFO</h1>
-        <p className="App-Intro">{this.state.UsersResponse}</p>
-      </div>
-    );
+    return <SignUp></SignUp>;
   }
 }
 
-export default API;
+export default SignUpPage;

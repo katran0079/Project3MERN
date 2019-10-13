@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SignIn from "./pages/API";
+import API from "./pages/api";
+import SignUpPage from "./pages/signup";
+import SignInPage from "./pages/signin";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -22,7 +24,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/api" component={SignIn}></Route>
+        <Route exact path="/api" component={API}></Route>
+        <Route path="/signup" component={SignUpPage}></Route>
+        <Route path="/signin" component={SignInPage}></Route>
       </Router>
     );
   }

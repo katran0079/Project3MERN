@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-class API extends Component {
+import SignIn from "../components/signin";
+class SignInPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { ConResponse: "", UsersResponse: "" };
+    this.state = { name: "", password: "", confirm: "", email: "" };
   }
 
   // callNews() {
@@ -25,15 +26,8 @@ class API extends Component {
     this.callCons();
   }
   render() {
-    return (
-      <div>
-        <h1>CON INFO</h1>
-        <p className="App-intro">{this.state.ConResponse}</p>
-        <h1>USER INFO</h1>
-        <p className="App-Intro">{this.state.UsersResponse}</p>
-      </div>
-    );
+    return <SignIn></SignIn>;
   }
 }
 
-export default API;
+export default SignInPage;
