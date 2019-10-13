@@ -1,16 +1,15 @@
 import React from "react";
 import "./style.css";
 
-function SignUp() {
+function SignIn() {
   return (
     <div className="signup-form">
       <form action="/examples/actions/confirmation.php" method="post">
         <h2>Con-Goers</h2>
-        <p class="hint-text">
+        <p className="hint-text">
           Network yourself and make friends along the way!
         </p>
-        <h3>Sign Up</h3>
-
+        <h3>Sign In</h3>
         <div className="form-group">
           <input
             type="email"
@@ -29,32 +28,17 @@ function SignUp() {
             required="required"
           />
         </div>
-        <div className="form-group">
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            placeholder="Email"
-            required="required"
-          />
-        </div>
-        <div className="form-group">
-          <input type="checkbox" required="required"></input>
-          <label className="checkbox-inline">
-            I accept the terms of agreement.
-          </label>
-        </div>
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg btn-block">
-            Sign Up Now
+            Sign in
           </button>
         </div>
       </form>
       <div class="text-center">
-        Already have an account? <a href="/">Sign in</a>
+        Don't have an account? <a href="/signup">Sign Up Now!</a>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default SignIn;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import API from "./pages/api";
 import SignUpPage from "./pages/signup";
+import SignInPage from "./pages/signin";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -25,6 +26,7 @@ class App extends Component {
       <Router>
         <Route exact path="/api" component={API}></Route>
         <Route path="/signup" component={SignUpPage}></Route>
+        <Route path="/signin" component={SignInPage}></Route>
       </Router>
     );
   }
