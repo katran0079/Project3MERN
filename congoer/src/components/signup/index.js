@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./style.css";
 
 function SignUp() {
@@ -51,7 +53,7 @@ function SignUp() {
         </div>
       </form>
       <div class="text-center">
-        Already have an account? <a href="/">Sign in</a>
+        Already have an account? <Link to="/signin">Sign in</Link>
       </div>
     </div>
   );
