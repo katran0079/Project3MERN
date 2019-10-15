@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newUser = new User({
-    name: "Kelvin",
-    email: "flowershirtsman@gmail.con",
-    password: "noobslayer429"
+    name,
+    password,
+    email
   });
 
   try {
