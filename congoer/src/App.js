@@ -4,7 +4,8 @@ import API from "./pages/API";
 import SignUpPage from "./pages/signup";
 import SignInPage from "./pages/signin";
 import ProfilePage from "./pages/profile"
-// eslint-disable-next-line 
+import Cons from "./pages/cons";
+import People from "./pages/people";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -30,6 +31,9 @@ class App extends Component {
         <Route path="/signup" component={SignUpPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/profile" component={ProfilePage}></Route>
+        <Route path="/cons" component={Cons}></Route>
+        <Route path="/people" component={People}></Route>
+
       </Router>
     );
   }

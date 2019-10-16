@@ -1,29 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav class="navbar navbar-inverse" id="pink">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-inverse" id="pink">
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <Link className="navbar-brand" to="/">
             Con Goer!
-          </a>
+          </Link>
         </div>
-        <ul class="nav navbar-nav">
+        <ul className="nav navbar-nav">
           <li>
-            <a href="#">Cosplayers</a>
+            <Link to="/cons">Cons</Link>
           </li>
           <li>
-            <a href="#">Artists</a>
-          </li>
-          <li>
-            <a href="#">Photographers</a>
-          </li>
-          <li>
-            <a href="#">Prop Makers</a>
-          </li>
-          <li>
-            <a href="#">Costume Makers</a>
+            <Link to="/people">People</Link>
           </li>
         </ul>
       </div>

@@ -37,17 +37,14 @@ class SignUpPage extends Component {
   onEmailChange(e) {
     this.setState({ email: e.target.value });
   }
-  async onSubmit(e) {
-    try {
-      const response = await axios.post("https://localhost:5000/api/users", {
-        name: this.state.username,
-        email: this.state.email,
-        password: this.state.password
-      });
-      console.log("👉 Returned data:", response);
-    } catch (e) {
-      console.log(`Axios request failed: ${e}`);
-    }
+  onSubmit() {
+    console.log(this.state);
+    const response = axios.post("https://localhost:5000/api/users", {
+      name: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    });
+    console.log("👉 Returned data:", response);
   }
   componentWillMount() {}
   render() {

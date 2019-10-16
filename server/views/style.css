@@ -1,0 +1,85 @@
+#pink {
+  background-color: #9b375d;
+}
+
+.test {
+  background-color: #db4e84;
+}
+
+#back {
+  background-color: #863580;
+  cursor: pointer;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #2c2834;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: rgb(114, 56, 141);
+}
+
+a {
+  color: rgb(103, 70, 134);
+}
+
+li {
+  color: rgb(127, 48, 143);
+}
+
+#myNavBar {
+  background-color: rgb(249, 128, 174);
+}
+
+table {
+  table-layout: fixed;
+  /* word-wrap: break-word; */
+}
+
+.well {
+  background: white;
+}
+
+.well a {
+  color: black;
+}
+
+/* Made with love by Mutiullah Samim*/
+
+@import url("https://fonts.googleapis.com/css?family=Numans");
+
+html,
+body {
+  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+}
+
+.container {
+  height: 100%;
+  align-content: center;
+}
+
+.card {
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #ffc312;
+}
+
+#fontawesome {
+  cursor: pointer;
+}
+
+#footer {
+  height: 10px;
+}
