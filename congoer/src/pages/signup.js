@@ -7,19 +7,6 @@ class SignUpPage extends Component {
     super(props);
     this.state = { username: "", password: "", confirm: "", email: "" };
   }
-  postUsers() {
-    fetch("https://localhost:5000/api/users", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        firstParam: "yourValue",
-        secondParam: "yourOtherValue"
-      })
-    });
-  }
   // callNews() {
   //   fetch("http://localhost:5000/scrape")
   //     .then(res => res.text())
@@ -36,9 +23,10 @@ class SignUpPage extends Component {
   onEmailChange(e) {
     this.setState({ email: e.target.value });
   }
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     console.log(this.state);
-    const response = axios.post("https://localhost:5000/api/users", {
+    const response = axios.post("/api/users", {
       name: this.state.username,
       email: this.state.email,
       password: this.state.password
@@ -94,7 +82,7 @@ class SignUpPage extends Component {
             <button
               type="submit"
               className="btn btn-success btn-lg btn-block"
-              onSubmit={this.onSubmit.bind(this)}
+              onClick={e => this.onSubmit(e)}
             >
               Sign Up Now
             </button>

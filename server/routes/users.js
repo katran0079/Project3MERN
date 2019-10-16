@@ -24,6 +24,7 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  console.log(req.body);
   const newUser = new User({
     name: req.body.name,
     password: req.body.password,
