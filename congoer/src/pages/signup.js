@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line 
 import SignUp from "../components/signup";
 import axios from "axios";
 class SignUpPage extends Component {
