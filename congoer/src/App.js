@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import API from "./pages/api";
+import API from "./pages/API";
 import SignUpPage from "./pages/signup";
 import SignInPage from "./pages/signin";
+import ProfilePage from "./pages/profile"
+// eslint-disable-next-line 
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -27,6 +29,7 @@ class App extends Component {
         <Route exact path="/api" component={API}></Route>
         <Route path="/signup" component={SignUpPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
+        <Route path="/profile" component={ProfilePage}></Route>
       </Router>
     );
   }
