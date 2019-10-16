@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import API from "./pages/API";
 import SignUpPage from "./pages/signup";
 import SignInPage from "./pages/signin";
-import ProfilePage from "./pages/profile"
+import ProfilePage from "./pages/profile";
 import Cons from "./pages/cons";
 import People from "./pages/people";
 import logo from "./logo.svg";
 import "./App.css";
+import Calendar from "./pages/calendar";
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends Component {
         <Route path="/cons" component={Cons}></Route>
         <Route path="/people" component={People}></Route>
 
+        <Route path="/calendar" component={Calendar}></Route>
       </Router>
     );
   }
