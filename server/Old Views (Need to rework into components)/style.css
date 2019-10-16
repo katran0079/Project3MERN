@@ -1,0 +1,44 @@
+#pink {
+  background-color: #ff609d;
+}
+
+.test {
+  background-color: #2c2834;
+}
+
+#back {
+  background-color: #2c2834;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #1ce4b8;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
+#myNavBar {
+  background-color: rgb(249, 128, 174);
+}
+
+table {
+  table-layout: fixed;
+  /* word-wrap: break-word; */
+}
+
+.well {
+  background: white;
+}
+
+.well a {
+  color: black;
+}

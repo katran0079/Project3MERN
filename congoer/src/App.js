@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import API from "./pages/api";
+import API from "./pages/API";
 import SignUpPage from "./pages/signup";
 import SignInPage from "./pages/signin";
+import Cons from "./pages/cons";
+import People from "./pages/people";
+//import Index from "./pages/index";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -27,6 +30,8 @@ class App extends Component {
         <Route exact path="/api" component={API}></Route>
         <Route path="/signup" component={SignUpPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
+        <Route path="/cons" component={Cons}></Route>
+        <Route path="/people" component={People}></Route>
       </Router>
     );
   }
