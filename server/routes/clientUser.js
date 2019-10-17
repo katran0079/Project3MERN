@@ -13,7 +13,8 @@ router.get("/", function(req, res) {
         name: resp[i].name,
         id: resp[i]._id,
         dateJoined: resp[i].dateJoined,
-        tags: resp[i].tags
+        tags: resp[i].tags,
+        profile: resp[i].profile
       };
       array.push(obj);
     }

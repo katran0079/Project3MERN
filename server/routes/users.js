@@ -24,11 +24,10 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   const newUser = new User({
-    name: req.body.name,
-    password: req.body.password,
-    email: req.body.email
+    name: "kelv",
+    password: "test",
+    email: "fakeemail@gmail.com"
   });
 
   try {
