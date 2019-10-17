@@ -10,8 +10,7 @@ const ComSchema = mongoose.Schema({
     require: true
   },
   eventID: {
-    type: String,
-    require: true
+    type: String
   },
   venueInfo: {
     type: Object
@@ -23,6 +22,9 @@ const ComSchema = mongoose.Schema({
   end: {
     type: Date,
     default: Date.now
+  },
+  attendees: {
+    type: Array
   }
 });
 
