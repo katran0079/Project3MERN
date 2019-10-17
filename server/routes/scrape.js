@@ -64,4 +64,29 @@ router.get("/", function(req, res) {
     });
 });
 
+router.get("/:id", async (req, res) => {
+  User.findOne({ _id: req.params.id }).exec(function(error, doc) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(doc);
+    }
+  });
+});
+
+router.post("/:id", async (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      attendees: req.body.attendees
+    }
+  ).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  });
+});
+
 module.exports = router;

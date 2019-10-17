@@ -1,4 +1,3 @@
-  
 {
-    "mongoURI": "mongodb://localhost:27017/congoer"
+  "mongoURI": "mongodb://heroku_s05vnlx2:cipu1ha4kr9t58iv3g1kpj5kec@ds335668.mlab.com:35668/heroku_s05vnlx2"
 }
