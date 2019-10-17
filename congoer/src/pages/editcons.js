@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ConCards from "../components/ConCards";
 import Axios from "../../../server/node_modules/axios";
+import { string } from "prop-types";
 
-class Cons extends Component {
+class EditCons extends Component {
   constructor(props) {
     super(props);
-    this.state = { conventions: [] };
+    this.state = { conventions: [], conID: "" };
   }
-
+  onChange(e) {
+    e.preventDefault();
+    this.setState({ conID: e.target.value });
+  }
   componentWillMount() {
     fetch("/scrape")
       .then(res => res.json())
@@ -34,22 +38,12 @@ class Cons extends Component {
           <div className="col-sm-2"></div>
           <div className="col-sm-8 jumbotron">
             <h3>Upcoming Conventions</h3>
-            <Link to="/editconventions">Add/Edit Conventions</Link>
-            {this.state.conventions.map(conventions => (
-              <ConCards
-                id={conventions.id}
-                key={conventions.id}
-                name={conventions.name}
-                location={conventions.venueInfo[0].name}
-                country={conventions.venueInfo[0].country.name}
-                start={conventions.start}
-                end={conventions.end}
-                img={conventions.img.url}
-                url={conventions.url}
-                attendees={conventions.attendees}
-                count={conventions.attendees.length}
-              />
-            ))}
+            <label for="select">Edit</label>
+            <select onChange={this.onChange.bind(this)}>
+              {this.state.conventions.map(conventions => (
+                <option value={conventions.id}>{conventions.name}</option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
@@ -57,4 +51,4 @@ class Cons extends Component {
   }
 }
 
-export default Cons;
+export default EditCons;
