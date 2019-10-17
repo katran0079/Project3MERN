@@ -22,8 +22,12 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/cons", require("./routes/cons"));
 // scrape route grabs the ticketmaster API and helps to extract the info we'll need and then dumps it into the db
 app.use("/scrape", require("./routes/scrape"));
-app.get("/", (req, res) => res.json({ msg: "Welcome to ConGoers!" }));
-
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+}
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
