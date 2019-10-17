@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import ConCards from "../components/ConCards";
-import Axios from "../../../server/node_modules/axios";
-import { string } from "prop-types";
 
 class EditCons extends Component {
   constructor(props) {

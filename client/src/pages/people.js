@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import UserCards from "../components/UserCards";
 class People extends Component {

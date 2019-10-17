@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../components/profile/style.css";
 import Navbar from "../components/Navbar";
-import Axios from "../../../server/node_modules/axios";
+import Axios from "axios";
 
 class EditProfile extends Component {
   constructor(props) {
