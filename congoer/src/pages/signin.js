@@ -45,7 +45,9 @@ class SignInPage extends Component {
       );
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    localStorage.removeItem("user");
+  }
 
   render() {
     return (
