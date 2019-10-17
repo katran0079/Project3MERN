@@ -7,11 +7,6 @@ class SignInPage extends Component {
     this.state = { username: "", password: "", confirm: "" };
   }
 
-  // callNews() {
-  //   fetch("http://localhost:5000/scrape")
-  //     .then(res => res.text())
-  //     .then(res => this.setState({ ConResponse: res }));
-  // }
   onUsernameChange(e) {
     this.setState({ username: e.target.value });
   }
@@ -19,20 +14,38 @@ class SignInPage extends Component {
   onPasswordChange(e) {
     this.setState({ password: e.target.value });
   }
-  callUsers() {
-    fetch("http://localhost:5000/api/users")
-      .then(res => res.text())
-      .then(res => this.setState({ UsersResponse: res }));
+
+  onSubmit(e) {
+    e.preventDefault();
+    console.log(this.state);
+    fetch("/api/users")
+      .then(res => res.json())
+      .then(
+        result => {
+          console.log(result);
+          for (var i = 0; i < result.length; i++) {
+            var username = result[i].name;
+            var password = result[i].password;
+            if (username === this.state.username) {
+              if (password === this.state.password) {
+                localStorage.setItem("user", this.state.username);
+                window.location.href = "/profile";
+              } else {
+                return console.log("Your username and/or password is invalid.");
+              }
+            }
+          }
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          console.log(error);
+        }
+      );
   }
-  callCons() {
-    fetch("http://localhost:5000/api/cons")
-      .then(res => res.text())
-      .then(res => this.setState({ ConResponse: res }));
-  }
-  componentWillMount() {
-    this.callUsers();
-    this.callCons();
-  }
+
+  componentWillMount() {}
 
   render() {
     return (
@@ -62,7 +75,11 @@ class SignInPage extends Component {
             />
           </div>
           <div className="form-group">
-            <button type="submit" className="btn btn-success btn-lg btn-block">
+            <button
+              onClick={e => this.onSubmit(e)}
+              type="submit"
+              className="btn btn-success btn-lg btn-block"
+            >
               Sign in
             </button>
           </div>

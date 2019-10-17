@@ -23,6 +23,9 @@ const ComSchema = mongoose.Schema({
   end: {
     type: Date,
     default: Date.now
+  },
+  attendees: {
+    type: Array
   }
 });
 
