@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import UserCards from "../components/UserCards";
-class People extends Component {
+import ConCards from "../components/ConCards";
+import Axios from "../../../server/node_modules/axios";
+import { string } from "prop-types";
+
+class EditCons extends Component {
   constructor(props) {
     super(props);
-    this.state = { users: [] };
+    this.state = { conventions: [], conID: "" };
   }
-
+  onChange(e) {
+    e.preventDefault();
+    this.setState({ conID: e.target.value });
+  }
   componentWillMount() {
-    fetch("/api/users")
+    fetch("/scrape")
       .then(res => res.json())
       .then(
         result => {
           console.log(result);
-          const array = [];
-          array.push(result);
-          console.log(array);
-          this.setState({ users: result });
+          this.setState({ conventions: result });
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -34,18 +37,13 @@ class People extends Component {
         <div className="row">
           <div className="col-sm-2"></div>
           <div className="col-sm-8 jumbotron">
-            <h3>Fellow Con Goers</h3>
-            {this.state.users.map(users => (
-              <UserCards
-                id={users.id}
-                key={users.id}
-                name={users.name}
-                img={users.img}
-                profile={users.profile.body}
-                insta={users.insta}
-                twitter={users.twitter}
-              />
-            ))}
+            <h3>Upcoming Conventions</h3>
+            <label for="select">Edit</label>
+            <select onChange={this.onChange.bind(this)}>
+              {this.state.conventions.map(conventions => (
+                <option value={conventions.id}>{conventions.name}</option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
@@ -53,4 +51,4 @@ class People extends Component {
   }
 }
 
-export default People;
+export default EditCons;

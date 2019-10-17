@@ -41,11 +41,14 @@ router.get("/", function(req, res) {
         //just makes it easier to use this info for later as opposed to using the actual API
         var obj = {
           name: resp[i].name,
+          url: resp[i].url,
+          img: resp[i].images[0],
           eventID: resp[i].id,
           description: description,
           start: resp[i].dates.start.localDate,
           venueInfo: eventVenue,
-          end: endDate
+          end: endDate,
+          attendees: []
         };
         array.push(obj);
         var entry = new Con(obj);
@@ -59,6 +62,31 @@ router.get("/", function(req, res) {
       }
       res.send(array);
     });
+});
+
+router.get("/:id", async (req, res) => {
+  User.findOne({ _id: req.params.id }).exec(function(error, doc) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(doc);
+    }
+  });
+});
+
+router.post("/:id", async (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      attendees: req.body.attendees
+    }
+  ).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
+    }
+  });
 });
 
 module.exports = router;

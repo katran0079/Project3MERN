@@ -14,22 +14,40 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  let id = req.params.id;
-  User.findById({
-    id,
-    function(err, theUser) {
-      res.json(theUser);
+  User.findOne({ _id: req.params.id }).exec(function(error, doc) {
+    if (error) {
+      console.log(error);
+    } else {
+      res.json(doc);
+    }
+  });
+});
+
+router.post("/:id", async (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      profile: req.body.profile,
+      twitter: req.body.twitter,
+      insta: req.body.insta,
+      status: req.body.status
+    }
+  ).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(doc);
     }
   });
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   const newUser = new User({
     name: req.body.name,
     password: req.body.password,
     email: req.body.email
   });
+  console.log("NEW USER: " + newUser);
 
   try {
     const newUserSaved = await newUser.save();

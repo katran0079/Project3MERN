@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../components/signin/style.css";
-class SignInPage extends Component {
+class Welcome extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "", confirm: "" };
@@ -46,7 +46,10 @@ class SignInPage extends Component {
   }
 
   componentWillMount() {
-    localStorage.removeItem("user");
+    localStorage.getItem("user");
+    if (localStorage.getItem("user") !== "undefined") {
+      window.location.href = "/profile";
+    }
   }
 
   render() {
@@ -55,37 +58,20 @@ class SignInPage extends Component {
         <form>
           <h2>Con-Goers</h2>
           <p className="hint-text">
-            Network yourself and make friends along the way! \{" "}
+            Network yourself and make friends along the way!
           </p>
-          <h3>Sign In</h3>
+          <h3>What is Con-Goers</h3>
           <div className="form-group">
-            <input
-              className="form-control"
-              name="username"
-              placeholder="Username"
-              required="required"
-              onChange={this.onUsernameChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              name="password"
-              placeholder="Password"
-              required="required"
-              onChange={this.onPasswordChange.bind(this)}
-            />
-          </div>
-          <div className="form-group">
-            <button
-              onClick={e => this.onSubmit(e)}
-              type="submit"
-              className="btn btn-success btn-lg btn-block"
-            >
-              Sign in
-            </button>
+            <p>
+              Con-Goers is a networking website for people who like to attend
+              events such as Comic Con. Users can browse upcoming events, create
+              their own events, and interact each other.
+            </p>
           </div>
         </form>
+        <div className="text-center">
+          Have an account? <Link to="/signin">Sign In!</Link>
+        </div>
         <div className="text-center">
           Don't have an account? <Link to="/signup">Sign Up Now!</Link>
         </div>
@@ -94,4 +80,4 @@ class SignInPage extends Component {
   }
 }
 
-export default SignInPage;
+export default Welcome;

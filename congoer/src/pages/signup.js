@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line 
+// eslint-disable-next-line
 import SignUp from "../components/signup";
 import axios from "axios";
 class SignUpPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", confirm: "", email: "" };
+    this.state = { username: "", password: "", email: "" };
   }
   // callNews() {
   //   fetch("http://localhost:5000/scrape")
@@ -33,6 +33,9 @@ class SignUpPage extends Component {
       password: this.state.password
     });
     console.log("👉 Returned data:", response);
+    localStorage.setItem("user", this.state.username);
+    console.log(localStorage.getItem("user"));
+    window.location.href = "/profile";
   }
   componentWillMount() {}
   render() {
