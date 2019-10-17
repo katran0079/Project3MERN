@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ConCards from "../components/ConCards";
-import Axios from "../../../server/node_modules/axios";
 
 class Cons extends Component {
   constructor(props) {
