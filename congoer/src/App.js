@@ -6,10 +6,11 @@ import SignInPage from "./pages/signin";
 import ProfilePage from "./pages/profile";
 import Cons from "./pages/cons";
 import People from "./pages/people";
+import Welcome from "./pages/welcome";
 import logo from "./logo.svg";
 import "./App.css";
 import Calendar from "./pages/calendar";
-
+import EditProfile from "./pages/edit";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,12 +29,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/api" component={API}></Route>
+        <Route exact path="/" component={Welcome}></Route>
         <Route path="/signup" component={SignUpPage}></Route>
         <Route path="/signin" component={SignInPage}></Route>
         <Route path="/profile" component={ProfilePage}></Route>
         <Route path="/cons" component={Cons}></Route>
         <Route path="/people" component={People}></Route>
+        <Route path="/editprofile" component={EditProfile}></Route>
 
         <Route path="/calendar" component={Calendar}></Route>
       </Router>

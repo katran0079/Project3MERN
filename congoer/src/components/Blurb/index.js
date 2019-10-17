@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Blurb(props) {
   return (
     <div className="col-sm-3 sidenav well">
@@ -23,6 +23,8 @@ function Blurb(props) {
         <p>Instagram: {props.insta}</p>
         <p>Twitter: {props.twitter}</p>
       </div>
+
+      <Link to="/editprofile">Edit Profile</Link>
       <div className="col-sm-3 sidenav"></div>
     </div>
   );
