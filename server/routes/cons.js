@@ -15,8 +15,9 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const newCon = new Con({
-    name: "First Comic Con",
-    description: "Our first comic Con"
+    name: req.body.name,
+    description: req.body.description,
+    venueInfo: req.body.venueInfo
   });
 
   try {

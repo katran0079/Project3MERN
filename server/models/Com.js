@@ -10,8 +10,7 @@ const ComSchema = mongoose.Schema({
     require: true
   },
   eventID: {
-    type: String,
-    require: true
+    type: String
   },
   venueInfo: {
     type: Object

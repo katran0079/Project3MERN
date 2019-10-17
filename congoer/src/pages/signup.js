@@ -33,7 +33,9 @@ class SignUpPage extends Component {
       password: this.state.password
     });
     console.log("👉 Returned data:", response);
-    localStorage.setItem("user", this.state.name);
+    localStorage.setItem("user", this.state.username);
+    console.log(localStorage.getItem("user"));
+    window.location.href = "/profile";
   }
   componentWillMount() {}
   render() {
